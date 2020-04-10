@@ -75,12 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'ghdqqtmy_igni483',
-	'password' => '-6.38Yp5lS',
-	'database' => 'ghdqqtmy_igni483',
+	'hostname' => '162.241.252.215',
+	'username' => 'ghdqqtmy_rene',
+	'password' => 'zusez3freemake12',
+	'database' => 'ghdqqtmy_Food',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => 'qt',
+	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
