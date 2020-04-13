@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
-<h1 style="text-align: center;">I can do all things&nbsp;through&nbsp;Christ who strengthens me.</h1>
+<p><strong>Gusto taka pakasalan kay ikaw ra ang gusto nako kissan perme, ug ihug perme, ug makatapad matulog. ikaw ang gusto nako makita kada adlaw inig mata nako. Gusto nako ma kaptan perme imu kamot. di nako kaya na mawala ka sa akoa. Ug Gusto ka nako pakasalan kay ikaw ang ako gina ampo ug gi higugma pagayo.</strong></p>
+<p>&nbsp;</p>
+<p>I LOVE YOU LOVE.!&nbsp;</p>
