@@ -23,8 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://ghd.qqt.mybluehost.me/';
-
+$config['base_url'] = 'http://localhost:8000';
+$config['encryption_key'] = "UpSphereSolutions"; 
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@\=';
+$config['enable_query_strings'] = TRUE;
 /*
 |--------------------------------------------------------------------------
 | Index File

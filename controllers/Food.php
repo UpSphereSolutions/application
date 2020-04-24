@@ -71,11 +71,11 @@ class Food extends CI_Controller {
 
 
     public function sendEmail() {
-        //SMTP & mail configuration
+        print_r($this->uri->segment(3));exit();
         $this->load->library('encryption');
         $config = array(
             'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://box5742.bluehost.com',
+            'smtp_host' => 'ssl://mail.upspheresolutions.com',
             'smtp_port' => 465,
             'smtp_user' => 'upsphere@upspheresolutions.com',
             'smtp_pass' => 'TheSphere@2020',
@@ -87,38 +87,30 @@ class Food extends CI_Controller {
         $this->email->set_newline("\r\n");
         //Email content
         $htmlContent = '<h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1>';
-        $htmlContent .= '<p><span style="color: #0000ff;"><span style="color: #808080;">Social Media:</span></span></p>';
-        $htmlContent .= '<p><span style="color: #0000ff;"><span style="color: #808080;">Social Media:</span></span></p>';
-        $htmlContent .= '<ol style="list-style: none; font-size: 14px; line-height: 32px; font-weight: bold;">';
-        $htmlContent .= '<li style="clear: both;"><span style="color: #0000ff;"><a href="https://www.facebook.com/UpSphere-Solutions-';
-        $htmlContent .= '102288094758962/" target="_blank" rel="noopener">Upsphere Solutions</a><img style="float: left;"';
-        $htmlContent .= 'src="https://encrypted-tbn0.gstatic.com/images?';
-        $htmlContent .= 'q=tbn%3AANd9GcSAqrpvltqgLoZQRSNgBtsT2L5gWpMpUzU9QLB-KLSXxtSZe768&amp;usqp=CAU"';
-        $htmlContent .= 'alt="interactive connection" width="43" height="43" /></span></li>';
-        $htmlContent .= '<p><span style="color: #0000ff;"><span style="color: #808080;">Email: <a href="">upsphere@upspheresolutions.com</a></span></span></p>';
-        $htmlContent .= '</ol>';   
+        
         $this->email->to('andoyandoy5@gmail.com');
-        $this->email->from('upsphere@upspheresolutions.com','UPSPHERE SOLUTIONS');
+        $this->email->from('upsphere@upspheresolutions.com');
         $this->email->subject('NO REPLY!!');
         $this->email->message($htmlContent);
         //Send email
-        $res = $this->email->send();
+        $res =   $this->email->send();
         echo json_encode($res);
     }
 
     public function uploadImage() {
-        $this->load->library('ftp');
-        $config['hostname'] = 'ftp://ftp.ghd.qqt.mybluehost.me';
-        $config['username'] = 'upsphere@ghd.qqt.mybluehost.me';
-        $config['password'] = 'TheSphere@2020';
-        $config['port'] = '21';
-        $config['debug']        = TRUE;
-        $this->ftp->connect($config);
-        $fname = 'C:/Users/retchel/Downloads/file.png';
-        if (file_exists($fname)) { 
-            $res = $this->ftp->upload($fname, '/public_html/upsphere/file.png', 'ascii', 0775);
-        } else { echo 'File not found!'; }
-      
-        $this->ftp->close(); 
+
+        $c = curl_init();
+ 
+        $fp = fopen('C:/Users/retchel/Downloads/file.png' , "r");
+    
+        curl_setopt($c, CURLOPT_URL, "ftp.ghd.qqt.mybluehost.me/filess.png");
+        curl_setopt($c, CURLOPT_USERPWD, "upsphere@ghd.qqt.mybluehost.me:TheSphere@2020");
+        curl_setopt($c, CURLOPT_UPLOAD, 1);
+        curl_setopt($c, CURLOPT_INFILE, $fp);
+        curl_setopt($c, CURLOPT_INFILESIZE, filesize('C:/Users/retchel/Downloads/file.png'));
+    
+        $data = curl_exec($c);
+          echo $data;
+        curl_close($c);
     }
 }
