@@ -33,6 +33,12 @@ public function login($username, $password, $ip) {
         return $result;
 }
 
+public function getList() {
+        $result = $this->db->query("SELECT * FROM user_details INNER JOIN `user_address` ON `user_address`.`id` = `user_details`.`address`");
+        $result =  $result->result_array(); 
+        return $result;
+}
+
 public function sendEmail($username, $password) {
         $result = $this->db->query("CALL sp_check_email('$username', '$password')");
         $result =  $result->result_array();
