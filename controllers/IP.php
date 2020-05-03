@@ -9,11 +9,18 @@ class IP extends CI_Controller {
         $this->load->helper('url'); 
     }
     public function verifyIp() {
-       $ip = $this->uri->segment(3); 
+       $data = $this->uri->segment(3); 
+       $data = (array)json_decode(base64_decode($data));
+     
+       
+       $password = $data['password'];
+       $ip = $data['ip'];
+       $username = $data['username'];
+    //    print_r($ip);exit();
        $data['data']['M'] = 'Direct access not allowed'; 
-       if ($ip != '') {
-        $res = $this->Food_model->verifyIp(base64_decode($ip.''));
-        $data['data'] = $res[0]; 
+       if ($data != '') {
+            $res = $this->Food_model->verifyIp($password,$username,$ip);
+            $data['data'] = $res[0]; 
        }
        $this->load->view('Satisfood/verifyIp', $data);
     }

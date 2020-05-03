@@ -33,10 +33,11 @@ public function login($username, $password, $ip) {
         return $result;
 }
 
-public function sendEmail($email) {
-        $result = $this->db->query("CALL sp_check_email('andoyandoy5@gmail.co')");
+public function sendEmail($username, $password) {
+        $result = $this->db->query("CALL sp_check_email('$username', '$password')");
         $result =  $result->result_array();
         mysqli_next_result( $this->db->conn_id );
+        // print_r($result[0]['email']);exit();
         if (count($result) > 0) {
                 $this->load->library('encryption');
                 $config = array(
@@ -48,14 +49,16 @@ public function sendEmail($email) {
                     'mailtype'  => 'html',
                     'charset'   => 'utf-8'
                 );
+
+                $params = array('username' => $username, 'password' => $password, 'ip' => $this->input->ip_address());
                 $this->email->initialize($config);
                 $this->email->set_mailtype("html");
                 $this->email->set_newline("\r\n");
                 //Email content
                 $htmlContent = '<h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1>';
-                $htmlContent = '<a href="http://localhost:8000/VerifyIp/verifyIp/'.base64_encode($this->input->ip_address()).'"><h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1></a>';
+                $htmlContent = '<a href="http://localhost:8000/VerifyIp/verifyIp/'.base64_encode(json_encode($params)).'"><h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1></a>';
                 
-                $this->email->to('andoyandoy5@gmail.com');
+                $this->email->to($result[0]['email']);
                 $this->email->from('no-reply@upspheresolutions.com');
                 $this->email->subject('NO REPLY!!');
                 $this->email->message($htmlContent);
@@ -68,8 +71,8 @@ public function sendEmail($email) {
 
     }
 
-    public function verifyIp($ip) {
-        $result = $this->db->query("CALL sp_manageIp('$ip')");
+    public function verifyIp($password, $username, $ip) {
+        $result = $this->db->query("CALL sp_manageIp('$password','$username','$ip')");
         $result =  $result->result_array();
         mysqli_next_result( $this->db->conn_id );
         return $result;

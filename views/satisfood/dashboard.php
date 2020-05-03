@@ -299,10 +299,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="<?php echo base_url()."assets/";?>#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="<?php echo base_url()."assets/";?>https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
+            <form action="<?php echo base_url()."Satisfood/logout";?>">
+                <button class="btn-circle" type="submit"></button>
+            </form>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="<?php echo base_url()."assets/";?>#">
