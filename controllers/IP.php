@@ -6,6 +6,7 @@ class IP extends CI_Controller {
         parent::__construct();
         $this->load->model('Food_model');
         $this->load->library('email');
+
         $this->load->helper('url'); 
     }
     public function verifyIp() {
