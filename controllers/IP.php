@@ -11,7 +11,8 @@ class IP extends CI_Controller {
     public function verifyIp() {
        $data = $this->uri->segment(3); 
        $data = (array)json_decode(base64_decode($data));
-     
+       
+        
        
        $password = $data['password'];
        $ip = $data['ip'];
