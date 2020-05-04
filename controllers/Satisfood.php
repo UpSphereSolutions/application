@@ -22,18 +22,18 @@ class Satisfood extends CI_Controller {
 	public function index()
 	{ 
         $data['user'] = $this->user;
-        $this->load->view('Satisfood/dashboard', $data); 
+        $this->load->view('satisfood/dashboard', $data); 
     }
 
     function manageAccount() {
         $data['userlist'] = $this->Food_model->getList();
         $data['user'] = $this->user;
-        $this->load->view('Satisfood/manageAccount', $data); 
+        $this->load->view('satisfood/manageAccount', $data); 
     }
     
     public function home() {
         $data['user'] = $this->user;
-        $this->load->view('Satisfood/dashboard', $data); 
+        $this->load->view('satisfood/dashboard', $data); 
     }
 
     public function logout() {
@@ -50,6 +50,6 @@ class Satisfood extends CI_Controller {
        $ip = $this->uri->segment(3); 
        $res = $this->Food_model->verifyIp(base64_decode($ip.''));
        $data['data'] = $res[0]; 
-      $this->load->view('Satisfood/verifyIp', $data);
+      $this->load->view('satisfood/verifyIp', $data);
     }
 }
