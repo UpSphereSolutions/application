@@ -24,6 +24,6 @@ class IP extends CI_Controller {
             $res = $this->Food_model->verifyIp($password,$username,$ip);
             $data['data'] = $res[0]; 
        }
-       $this->load->view('Satisfood/verifyIp', $data);
+       $this->load->view('satisfood/verifyIp', $data);
     }
 }

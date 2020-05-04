@@ -59,7 +59,7 @@ class Login extends CI_Controller {
             $data['status'] = 1;
             $data['message'] = $res;
         } 
-        $this->load->view('satisfood/login', $data);
+        $this->load->view('satisfood/Login', $data);
     }
     public function register()
 	{

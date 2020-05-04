@@ -19,7 +19,7 @@
       $this->load->view('satisfood/component/topbar');
     ?>
       <!-- Begin Page Content -->
-      <div class="container-fluid">
+      <div class="container-fluid overflow-auto">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -39,6 +39,7 @@
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -61,6 +62,11 @@
                             <?php } ?>
                         </div>
                     </td>
+                    <td>
+                        <div class="btn-group btn-toggle"> 
+                            <button  data-value='<?php echo $value['lname'].', '.$value['fname']; ?>' type="button" id='action' class="btn btn-secondary">Action</button>
+                        </div>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -73,6 +79,7 @@
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </tfoot>
     </table>
@@ -92,9 +99,10 @@ $('.btn-toggle').click(function() {
     if ($(this).find('.btn-primary').length>0) {
     	$(this).find('.btn').toggleClass('btn-primary');
     }
-    
 });
-
+$('#action').click(function() {
+    alert($('#action').data('value'));
+});
 </script>
 <?php
   $this->load->view('satisfood/component/footer');
