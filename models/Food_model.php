@@ -62,7 +62,7 @@ public function sendEmail($username, $password) {
                 $this->email->set_newline("\r\n");
                 //Email content
                 $htmlContent = '<h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1>';
-                $htmlContent = '<a href="http://localhost:8000/VerifyIp/verifyIp/'.base64_encode(json_encode($params)).'"><h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1></a>';
+                $htmlContent = '<a href="http://ghd.qqt.mybluehost.me//IP/verifyIp/'.base64_encode(json_encode($params)).'"><h1 style="color: #5e9ca0;">UPSPHERE SOLUTIONS</h1></a>';
                 
                 $this->email->to($result[0]['email']);
                 $this->email->from('no-reply@upspheresolutions.com');
