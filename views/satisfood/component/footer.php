@@ -97,3 +97,8 @@
       // $("#loading").hide();
       }
 </script>
+<script>
+$(document).on('click',function(){
+$('.collapse').collapse('hide');
+})
+</script> 
