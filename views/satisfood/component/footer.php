@@ -93,7 +93,7 @@
       function navigate(action){
       // alert(action);
       $('.loading').modal('show');
-      $('#con').load('http://localhost:8000/Satisfood/'+action);
+      $('#con').load('<?php echo base_url()."satisfood/";?>'+action);
       // $("#loading").hide();
       }
 </script>
