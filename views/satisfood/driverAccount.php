@@ -98,17 +98,6 @@
   </div>
 </div>
 <script>
-    $(document).ready(function() {
-        $.noConflict();
-    $('#driverAccount').DataTable();
-  });
-  function msg(x, id){
-            // alert(x);
-            $('#accountName').val(x);
-            $('#accountId').val(id);
-    }
-</script>
-<script>
-
+$('#search').show();
   $(".loading").modal('hide');
 </script>

@@ -97,6 +97,6 @@
   </div>
 </div>
 <script>
-
+$('#search').show();
   $(".loading").modal('hide');
 </script>

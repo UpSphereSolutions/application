@@ -9,13 +9,13 @@
 <!-- Topbar Search -->
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
   <div class="input-group">
-    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+    <input type="text" class="form-control bg-light border-0 small" onkeyup="myFunction()" id='search' placeholder="Search Name" aria-label="Search" aria-describedby="basic-addon2">
     
-    <div class="input-group-append">
+    <!-- <div class="input-group-append">
       <button class="btn btn-primary" type="button">
         <i class="fas fa-search fa-sm"></i>
       </button>
-    </div>
+    </div> -->
   </div>
 </form>
 
@@ -35,7 +35,7 @@
     
       <form class="form-inline mr-auto w-100 navbar-search">
         <div class="input-group">
-          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <input type="text" class="form-control bg-light border-0 small"  placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <button class="btn btn-primary" type="button">
               <i class="fas fa-search fa-sm"></i>
@@ -156,8 +156,12 @@
   <!-- Nav Item - User Information -->
   <li class="nav-item dropdown no-arrow">
     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-      <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+      <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo ($this->user['fname']); ?></span>
+      <?php if($this->user['fname'] == 'rene'){ ?>
+        <img class="img-profile rounded-circle" src="https://scontent.fmnl6-1.fna.fbcdn.net/v/t1.0-1/p160x160/95842956_1260306114177955_8120726130924716032_n.jpg?_nc_cat=105&_nc_sid=dbb9e7&_nc_eui2=AeGdhA-nMlYUjK3-f91mLrpjug9sTlpsGye6D2xOWmwbJ8MWfUygGvY-b8KntXWNH3F4Kk0XBhnsWaQLFPm1aPtK&_nc_ohc=6XOB1aH2dNcAX8zKMJm&_nc_ht=scontent.fmnl6-1.fna&_nc_tp=6&oh=54b67b04b47b446ce8cdb1fb086a199b&oe=5EE3F056">
+      <?php } else {?>
+        <img class="img-profile rounded-circle" src="https://www.facebook.com/search/async/profile_picture/?fbid=100000936695742&width=72&height=72">
+      <?php } ?>
     </a>
     <!-- Dropdown - User Information -->
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
