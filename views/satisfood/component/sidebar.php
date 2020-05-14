@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url()."assets/";?>index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url()."Satisfood/home";?>">
   <div class="sidebar-brand-icon rotate-n-15">
     <i class="fas fa-laugh-wink"></i>
   </div>
@@ -37,11 +37,20 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Settings:</h6>
-      <a class="collapse-item" href="<?php echo base_url();?>Satisfood/manageAccount">Manage Account</a>
+      <a   class="collapse-item" onclick="navigate('manageAccount')">Manage Account</a>
+      <!-- <button class="collapse-item" onClick="navigate(manageAccount)">Manage Account</button> -->
+      <a class="collapse-item" onclick="navigate('manageMerchantAccount')">Merchant Account</a>
+      <a class="collapse-item" onclick="navigate('manageDriverAccount')">Driver Account</a>
+      <a class="collapse-item" onclick="navigate('manageHungryCustomerAccount')">Hungry Customer Account</a>
     </div>
   </div>
 </li>
 <?php } ?>
+
+
+
+
+
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -111,3 +120,8 @@
 
 </ul>
 <!-- End of Sidebar -->
+<div class="modal fade loading" tabindex="-1" role="dialog" id="spinnerModal">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <span class="fa fa-spinner fa-spin fa-3x w-100"></span>
+    </div>
+</div>

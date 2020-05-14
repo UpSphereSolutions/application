@@ -14,7 +14,7 @@ class Login extends CI_Controller {
         }
     }
     function home() {
-        redirect(base_url().'Satisfood/home');
+        redirect(base_url().'satisfood/home');
     }
     public function index() 
     {   
@@ -23,8 +23,9 @@ class Login extends CI_Controller {
         $password = $this->input->post('inputPassword');
         $ip = $this->input->ip_address();
         $data = array();
-        if ($ip) {
+        if (isset($username) && isset($password)) {
 
+        if ($ip) {
             // print_r($password);exit();
             $res = $this->Food_model->login($username,$password,$ip);
          
@@ -35,7 +36,7 @@ class Login extends CI_Controller {
             //   print_r($this->session->userdata('user'));
             //   print_r($res);
             // exit();
-              redirect(base_url().'Satisfood/home');
+              redirect(base_url().'satisfood/home');
             }
             if ($res['S'] == 3) {
                 $data['status'] = $res['S'];
@@ -59,6 +60,8 @@ class Login extends CI_Controller {
             $data['status'] = 1;
             $data['message'] = $res;
         } 
+        
+    }
         $this->load->view('satisfood/Login', $data);
     }
     public function register()

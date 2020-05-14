@@ -1,9 +1,7 @@
-
-      <div class="container-fluid overflow-auto">
-
+<div class="container-fluid overflow-auto">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Manage Account</h1>
+          <h1 class="h3 mb-0 text-gray-800">Hungry Customer Account</h1>
           <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>Create Account</a>
         </div>
 
@@ -98,7 +96,6 @@
     </div>
   </div>
 </div>
-
 <script>
 
   $(".loading").modal('hide');

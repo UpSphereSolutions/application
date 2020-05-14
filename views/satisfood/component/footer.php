@@ -54,7 +54,29 @@
   <!-- Page level custom scripts -->
   <script src="<?php echo base_url()."assets/";?>js/demo/chart-area-demo.js"></script>
   <script src="<?php echo base_url()."assets/";?>js/demo/chart-pie-demo.js"></script>
-
+ 
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function() {
+        $.noConflict();
+    $('#example').DataTable();
+  });
+  function msg(x, id){
+            // alert(x);
+            $('#accountName').val(x);
+            $('#accountId').val(id);
+    }
+</script>
+
+<script>
+   $('.loading').modal('hide');
+      function navigate(action){
+      // alert(action);
+      $('.loading').modal('show');
+      $('#con').load('http://localhost:8000/Satisfood/'+action);
+      // $("#loading").hide();
+      }
+</script>

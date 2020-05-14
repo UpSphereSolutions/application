@@ -39,6 +39,12 @@ public function getList() {
         return $result;
 }
 
+public function getMerchant() {
+        $result = $this->db->query("SELECT * FROM merchant_account");
+        $result =  $result->result_array(); 
+        return $result;
+}
+
 public function sendEmail($username, $password) {
         $result = $this->db->query("CALL sp_check_email('$username', '$password')");
         $result =  $result->result_array();
