@@ -9,6 +9,13 @@ class Satisfood extends CI_Controller {
         $this->load->library('email');
         $this->load->library('session');
         header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
+        header("Access-Control-Allow-Headers: Authorization");
+        header("Access-Control-Allow-Origin: *"); 
+        header('HTTP/1.0 200 OK');
+        header('HTTP/1.1 200 OK'); 
+        header('Cache-Control: no-store, no-cache, must-revalidate');
+        header('Cache-Control: post-check=0, pre-check=0');
+        header('Pragma: no-cache');
         $this->load->helper('url'); 
         // print_r($this->session->userdata('user'));exit();
         $this->user = $this->session->userdata('user');
