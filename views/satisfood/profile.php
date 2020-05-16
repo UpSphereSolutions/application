@@ -1,7 +1,21 @@
 
 <!------ Include the above in your HEAD tag ---------->
-
+<div class="toast" id="myToast" style="position: absolute; top: 10%; right: 0;">
+        <div class="toast-header">
+            <strong class="mr-auto"><i class="fa fa-grav"></i>Message</strong>
+            <!-- <small>11 mins ago</small> -->
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <div><label style='width: 100%' text='Message' id="toastMessage"></label></div>
+            <p class="nav-link fas fa-refresh pointer" onclick="navigate('profile')"     aria-selected="false">reload</p>
+        </div>
+    </div>
+</div>
 <div class="container emp-profile">
+
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
@@ -12,6 +26,7 @@
                         <label for="upload" style="color:blue;position: absolute;top: 85%;left: 50%;transform: translate(-50%, -50%);" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Upload</small></label>
                         <input id="upload" hidden type="file" onchange="readURL(this);" class="form-control border-0">
                         </div>
+                        
                     </div>
                     </div>
                     <div class="col-md-6">
@@ -58,6 +73,8 @@
                         </div> -->
                     </div>
                     <div class="col-md-8">
+                    <div class="bs-example">
+  
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <!-- <div class="row">
