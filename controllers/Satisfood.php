@@ -51,6 +51,45 @@ class Satisfood extends CI_Controller {
         $this->load->view('satisfood/driverAccount', $data); 
     }
 
+    function profile() {
+        $data = '';
+        $this->load->view('satisfood/profile', $data); 
+    }
+
+    function update() {
+       $data = $this->input->post('data');
+       $data = json_decode(json_encode($data));
+    //    print_r($data);
+       if ($data->target == 'email') {
+        $result = $this->Food_model->updateProfile("email = '".$data->email."' where id = ".$this->user['id']);
+        $this->user = $this->session->userdata('user');
+        $this->user['email'] = $data->email;
+        $this->session->set_userdata('user', $this->user);  
+        print_r($result);
+       } elseif ($data->target == 'profilename') {
+        $result = $this->Food_model->updateProfile("fname = '".$data->fname."', mname = '".$data->mname."', lname = '".$data->lname."' where id = ".$this->user['id']);
+        $this->user = $this->session->userdata('user');
+        $this->user['fname'] = $data->fname;
+        $this->user['mname'] = $data->mname;
+        $this->user['lname'] = $data->lname;
+        $this->session->set_userdata('user', $this->user);  
+        print_r($result);
+       }elseif ($data->target == 'contactno') {
+        $result = $this->Food_model->updateProfile("contactno = '".$data->contactno."' where id = ".$this->user['id']);
+        $this->user = $this->session->userdata('user');
+        $this->user['contactno'] = $data->contactno;
+        $this->session->set_userdata('user', $this->user);  
+        print_r($result);
+       }elseif ($data->target == 'gender') {
+        $result = $this->Food_model->updateProfile("gender = '".$data->gender."' where id = ".$this->user['id']);
+        $this->user = $this->session->userdata('user');
+        $this->user['gender'] = $data->gender;
+        $this->session->set_userdata('user', $this->user);  
+        print_r($result);
+       }
+       
+    }
+
     function manageHungryCustomerAccount() {
         $data['userlist'] = $this->Food_model->getList();
         $data['user'] = $this->user;
@@ -60,6 +99,7 @@ class Satisfood extends CI_Controller {
     function createMerchant() {
         echo $this->input->post('name');;
     }
+
     public function home() {
         $data['user'] = $this->user;
         $this->load->view('satisfood/dashboard', $data); 

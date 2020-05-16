@@ -13,6 +13,7 @@ public function getUser($username, $password)
 }
 
 
+
 public function registerUser($lastname, $firstname, $middlename, $contactNo, $email, $username, $password, $ip)
 {
         $result = $this->db->query("CALL sp_users('$lastname','$firstname','$middlename','$contactNo','$email','$username','$password', '$ip')");
@@ -30,6 +31,11 @@ public function login($username, $password, $ip) {
             );");
         $result =  $result->result_array();
         mysqli_next_result( $this->db->conn_id );
+        return $result;
+}
+
+public function updateProfile($query){
+        $result = $this->db->query("UPDATE user_details set $query");
         return $result;
 }
 
