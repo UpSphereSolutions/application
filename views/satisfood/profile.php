@@ -5,9 +5,14 @@
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="http://ghd.qqt.mybluehost.me/satisfood/ikyang.png" alt=""/>
+                        <div class="profile-img" style="position: relative;text-align: center;">
+                            <img style="border-radius: 10px" src="http://ghd.qqt.mybluehost.me/satisfood/ikyang.jpg" alt=""/>
+                        <!-- <a style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);">asdasdas</a> -->
+                        <div>
+                        <label for="upload" style="color:blue;position: absolute;top: 85%;left: 50%;transform: translate(-50%, -50%);" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Upload</small></label>
+                        <input id="upload" hidden type="file" onchange="readURL(this);" class="form-control border-0">
                         </div>
+                    </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
@@ -263,7 +268,30 @@
                 </div>
             </form>           
         </div>
-        <script>
+
+<div class="modal fade" id="uploadProfileImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <div class="profile-img">
+                <img id="changeProfile" style="border-radius: 10px;max-width: 100%; max-height: 100%;" src="" alt=""/>
+                        <!-- <a style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);">asdasdas</a> -->
+            <div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
 $('#search').show();
   $(".loading").modal('hide');
 </script>
