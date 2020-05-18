@@ -98,12 +98,12 @@ class Food extends CI_Controller {
     }
 
     public function uploadImage() {
-
+        $img = $this->input->post('img');
         $c = curl_init();
- 
-        $fp = fopen('C:/Users/retchel/Downloads/file.png' , "r");
+        
+        $fp = fopen($img , "r");
     
-        curl_setopt($c, CURLOPT_URL, "ftp.ghd.qqt.mybluehost.me/filess.png");
+        curl_setopt($c, CURLOPT_URL, "ftp.ghd.qqt.mybluehost.me/sample.png");
         curl_setopt($c, CURLOPT_USERPWD, "upsphere@ghd.qqt.mybluehost.me:TheSphere@2020");
         curl_setopt($c, CURLOPT_UPLOAD, 1);
         curl_setopt($c, CURLOPT_INFILE, $fp);

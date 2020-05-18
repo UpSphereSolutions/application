@@ -15,7 +15,8 @@ class Satisfood extends CI_Controller {
         $this->load->model('Food_model');
         $this->load->library('email');
         $this->load->library('session');
-        
+        $this->load->library('upload');
+        $this->load->helper('form');
         $this->load->helper('url'); 
         // print_r($this->session->userdata('user'));exit();
         $this->user = $this->session->userdata('user');
@@ -54,6 +55,55 @@ class Satisfood extends CI_Controller {
     function profile() {
         $data = '';
         $this->load->view('satisfood/profile', $data); 
+    }
+
+    function do_upload() {
+        
+        
+        $config = array(
+            'upload_path' => "./images/",
+            'allowed_types' => "gif|jpg|png|jpeg|pdf"
+            );
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config); //Make this line must be here.
+            if($this->upload->do_upload('userfile'))
+            {
+            $data = array('upload_data' => $this->upload->data());
+                // print_r($data);
+                // print_r($this->upload->do_upload('userfile'));
+                redirect(base_url().'satisfood');
+            }
+            else
+            {
+                $this->load->view('satisfood/dashboard');
+                $this->load->view('satisfood/profile');
+            }
+    }
+    
+    function uploadImage() {
+        $img = $this->input->post('img');
+        $c = curl_init();
+        $filename = rand(1000039600,1000000).'.png';
+        $fp = fopen($img , "r");
+        // print_r($img);
+        curl_setopt($c, CURLOPT_URL, "ftp.ghd.qqt.mybluehost.me/".$filename);
+        curl_setopt($c, CURLOPT_USERPWD, "upsphere@ghd.qqt.mybluehost.me:TheSphere@2020");
+        curl_setopt($c, CURLOPT_UPLOAD, 1);
+        curl_setopt($c, CURLOPT_INFILE, $fp);
+        // curl_setopt($c, CURLOPT_INFILESIZE, filesize($img));
+    
+        $data = curl_exec($c);
+        // print_r($data);
+          if ($data) {
+            $result = $this->Food_model->updateProfile("image = 'ghd.qqt.mybluehost.me/upsphere/".$filename."' where id = ".$this->user['id']);
+            $this->user = $this->session->userdata('user');
+            $this->user['image'] = "ghd.qqt.mybluehost.me/upsphere/".$filename;
+            $this->session->set_userdata('user', $this->user); 
+            echo $result;
+          } else {
+              echo $data;
+          }
+        curl_close($c);
     }
 
     function update() {

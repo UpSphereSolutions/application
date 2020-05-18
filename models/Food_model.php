@@ -9,6 +9,7 @@ public function getUser($username, $password)
         $result = $this->db->query("CALL sp_login('$username','$password')");
         $result =  $result->result_array();
         mysqli_next_result( $this->db->conn_id );
+        
         return $result;
 }
 
@@ -31,6 +32,7 @@ public function login($username, $password, $ip) {
             );");
         $result =  $result->result_array();
         mysqli_next_result( $this->db->conn_id );
+        // print_r($result);exit();
         return $result;
 }
 

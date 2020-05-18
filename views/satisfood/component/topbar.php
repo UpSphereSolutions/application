@@ -157,11 +157,9 @@
   <li class="nav-item dropdown no-arrow">
     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo ($this->user['fname']); ?></span>
-      <?php if($this->user['fname'] == 'rene'){ ?>
-        <img class="img-profile rounded-circle" src="https://scontent.fmnl6-1.fna.fbcdn.net/v/t1.0-1/p160x160/95842956_1260306114177955_8120726130924716032_n.jpg?_nc_cat=105&_nc_sid=dbb9e7&_nc_eui2=AeGdhA-nMlYUjK3-f91mLrpjug9sTlpsGye6D2xOWmwbJ8MWfUygGvY-b8KntXWNH3F4Kk0XBhnsWaQLFPm1aPtK&_nc_ohc=6XOB1aH2dNcAX8zKMJm&_nc_ht=scontent.fmnl6-1.fna&_nc_tp=6&oh=54b67b04b47b446ce8cdb1fb086a199b&oe=5EE3F056">
-      <?php } else {?>
-        <img class="img-profile rounded-circle" src="https://www.facebook.com/search/async/profile_picture/?fbid=100000936695742&width=72&height=72">
-      <?php } ?>
+       
+        <img class="img-profile rounded-circle" src="http://<?php echo $this->user['image']; ?>">
+     
     </a>
     <!-- Dropdown - User Information -->
     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

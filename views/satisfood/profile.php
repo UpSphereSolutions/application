@@ -1,10 +1,10 @@
 
 <!------ Include the above in your HEAD tag ---------->
-<div class="toast" id="myToast" style="position: absolute; top: 10%; right: 0;">
+<!-- <div class="toast" id="myToast" style="position: absolute; top: 10%; right: 0;">
         <div class="toast-header">
-            <strong class="mr-auto"><i class="fa fa-grav"></i>Message</strong>
+            <strong class="mr-auto"><i class="fa fa-grav"></i>Message</strong> -->
             <!-- <small>11 mins ago</small> -->
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+            <!-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -13,20 +13,24 @@
             <p class="nav-link fas fa-refresh pointer" onclick="navigate('profile')"     aria-selected="false">reload</p>
         </div>
     </div>
-</div>
+</div> -->
+
 <div class="container emp-profile">
 
-            <form method="post">
+            
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img" style="position: relative;text-align: center;">
-                            <img style="border-radius: 10px" src="http://ghd.qqt.mybluehost.me/satisfood/ikyang.jpg" alt=""/>
+                            <img style="border-radius: 10px" src="http://<?php echo $this->user['image']; ?>" alt=""/>
                         <!-- <a style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);">asdasdas</a> -->
                         <div>
-                        <label for="upload" style="color:blue;position: absolute;top: 85%;left: 50%;transform: translate(-50%, -50%);" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Upload</small></label>
-                        <input id="upload" hidden type="file" onchange="readURL(this);" class="form-control border-0">
+                        <label  for="upload" style="color:blue;position: absolute;top: 90%;left: 50%;font-size:10px;transform: translate(-50%, -50%);" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Upload</small></label>
+                        <input id="upload" name='uploadprofilepic' hidden type="file" onchange="readURL(this);" class="form-control border-0">
                         </div>
-                        
+                        <!-- <form action="satisfood/do_upload" method='post' enctype='multipart/form-data'>
+                                <input type='file' accept="image/x-png,image/gif,image/jpeg" name='userfile'  />
+                                <input type='submit' name='fname'  />
+                        </form> -->
                     </div>
                     </div>
                     <div class="col-md-6">
@@ -50,6 +54,12 @@
                                 <li class="nav-item">
                                     <p class="nav-link fas fa-refresh pointer" onclick="navigate('profile')"     aria-selected="false"></p>
                                 </li> 
+                                <div class="toast" id="myToast" role="alert">
+                                    <strong><label style='width: 100%' text='Message' id="toastMessage"></label></strong>
+                                    <button type="button" class="close" data-dismiss="toast" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -73,6 +83,7 @@
                         </div> -->
                     </div>
                     <div class="col-md-8">
+                        
                     <div class="bs-example">
   
                         <div class="tab-content profile-tab" id="myTabContent">
@@ -282,8 +293,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>           
+                </div>        
         </div>
 
 <div class="modal fade" id="uploadProfileImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -296,15 +306,18 @@
         </button>
       </div>
       <div class="modal-body">
-            <div class="profile-img">
-                <img id="changeProfile" style="border-radius: 10px;max-width: 100%; max-height: 100%;" src="" alt=""/>
+      <div id='alertUpload'>
+      </div>
+            <div class="profile-img col-md-12" >
+               <img height="200px" width="100%" class="img-responsive img-portfolio img-hover" id="changeProfile"  src="" alt=""/>
                         <!-- <a style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);">asdasdas</a> -->
             <div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <button type="button"  onclick="saveProfilepic()" class="btn btn-primary">Save changes</button>
+        <input type="text" value='' hidden id='img'>
+    </div>
     </div>
   </div>
 </div>
