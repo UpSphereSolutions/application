@@ -115,7 +115,7 @@
           <!-- Area Chart -->
           <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4">
-              <img width='100%' height="500px" style="border-radius: 10px" src="http://ghd.qqt.mybluehost.me/upsphere/template.png" alt=""/>
+              <img width='100%' height="500px" style="border-radius: 10px" src="http://ghd.qqt.mybluehost.me/upsphere/announcement.png" alt=""/>
             </div>
           </div>
         </div>
