@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img" style="position: relative;text-align: center;">
-                            <img style="border-radius: 10px" src="http://<?php echo $this->user['image']; ?>" alt=""/>
+                            <img width='200px' height="200px" style="border-radius: 10px" src="http://<?php echo $this->user['image']; ?>" alt=""/>
                         <!-- <a style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);">asdasdas</a> -->
                         <div>
                         <label  for="upload" style="color:blue;position: absolute;top: 90%;left: 50%;font-size:10px;transform: translate(-50%, -50%);" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Upload</small></label>
