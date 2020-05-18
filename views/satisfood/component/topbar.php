@@ -168,7 +168,7 @@
         <i class="fas fa-email fa-sm fa-fw mr-2 text-gray-400"></i>
         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo ($this->user['email']); ?></span>
       </a>
-      <a class="dropdown-item" onclick="navigate('profile')">
+      <a class="dropdown-item pointer" color="black" onclick="navigate('profile')">
         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
         Profile
       </a>
