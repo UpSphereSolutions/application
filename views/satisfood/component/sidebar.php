@@ -39,9 +39,9 @@
       <h6 class="collapse-header">Settings:</h6>
       <a   class="collapse-item" onclick="navigate('manageAccount')">Manage Account</a>
       <!-- <button class="collapse-item" onClick="navigate(manageAccount)">Manage Account</button> -->
-      <a class="collapse-item" onclick="navigate('manageMerchantAccount')">Merchant Account</a>
+      <!-- <a class="collapse-item" onclick="navigate('manageMerchantAccount')">Merchant Account</a>
       <a class="collapse-item" onclick="navigate('manageDriverAccount')">Driver Account</a>
-      <a class="collapse-item" onclick="navigate('manageHungryCustomerAccount')">Hungry Customer Account</a>
+      <a class="collapse-item" onclick="navigate('manageHungryCustomerAccount')">Hungry Customer Account</a> -->
     </div>
   </div>
 </li>
