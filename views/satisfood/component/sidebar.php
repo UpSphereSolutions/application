@@ -15,8 +15,8 @@
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
   <a class="nav-link" href="<?php echo base_url()."Satisfood/home";?>">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Dashboard</span></a>
+    <i class="fas fa-fw fa-home"></i>
+    <span>Home</span></a>
 </li>
 
 <!-- Divider -->
