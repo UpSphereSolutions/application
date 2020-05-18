@@ -37,7 +37,7 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Settings:</h6>
-      <a   class="collapse-item" onclick="navigate('manageAccount')">Manage Account</a>
+      <a  style="cursor: pointer;" class="collapse-item" onclick="navigate('manageAccount')">Manage Account</a>
       <!-- <button class="collapse-item" onClick="navigate(manageAccount)">Manage Account</button> -->
       <!-- <a class="collapse-item" onclick="navigate('manageMerchantAccount')">Merchant Account</a>
       <a class="collapse-item" onclick="navigate('manageDriverAccount')">Driver Account</a>
