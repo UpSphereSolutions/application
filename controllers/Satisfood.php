@@ -156,7 +156,10 @@ class Satisfood extends CI_Controller {
     }
 
     public function logout() {
+        $res = $this->Food_model->updateProfile("status = 'OFFLINE' where id = ".$this->user['id']);
+        // print_r($res);exit();
         $this->session->unset_userdata('user');
+        
         redirect(base_url().'Login');
     }
 

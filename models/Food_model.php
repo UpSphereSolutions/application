@@ -38,6 +38,7 @@ public function login($username, $password, $ip) {
 
 public function updateProfile($query){
         $result = $this->db->query("UPDATE user_details set $query");
+        // print_r($query);
         return $result;
 }
 
@@ -90,6 +91,8 @@ public function sendEmail($username, $password) {
         }
 
     }
+
+
 
     public function verifyIp($password, $username, $ip) {
         $result = $this->db->query("CALL sp_manageIp('$password','$username','$ip')");

@@ -208,6 +208,46 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
+                                                <label>Address: </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <p><?php echo $this->user['street']; ?>, <?php echo $this->user['city']; ?>, <?php echo $this->user['country']; ?><a style="font-size:13px" class="fa fa-pencil-square-o px-2" onclick="collapseEdit();" data-toggle="collapse" href="#editProfileAddress" role="button" aria-expanded="false" aria-controls="editProfileEmail"></a></p>
+                                                <div class="collapse" id="editProfileAddress">
+                                                    <div class="card card-body">
+                                                        <div class="row">
+                                                            <div class="form-group col-md-12"> 
+                                                                <div class=col-10>
+                                                                    <a style="font-size:10px">Street:
+                                                                        <input style="font-size:10px" class="form-control input-sm" id="inputProfileStreet" type="text" required value = '<?php echo $this->user['street']; ?>'>
+                                                                    </a>
+                                                                    <a style="font-size:10px">City:
+                                                                        <input style="font-size:10px" class="form-control input-sm" id="inputProfileCity" type="text" required value = '<?php echo $this->user['city']; ?>'>
+                                                                    </a>
+                                                                    <a style="font-size:10px">Country:
+                                                                        <input style="font-size:10px" class="form-control input-sm" id="inputProfileCountry" type="text" required value = '<?php echo $this->user['country']; ?>'>
+                                                                    </a>
+                                                                    <a style="font-size:10px">Postal Code:
+                                                                        <input style="font-size:10px" class="form-control input-sm" id="inputProfilePostalCode" type="text" required value = '<?php echo $this->user['pcode']; ?>'>
+                                                                    </a>
+                                                                </div>
+                                                             </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-12">
+                                                                <div class=col-10>
+                                                                <div class="modal-footer">
+                                                                    <button style="font-size:10px" type="button"  onclick="collapseEdit();" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button style="font-size:10px" type="button" onclick="update('contactno');" class="btn btn-primary">Save</button>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
                                                 <label>Gender</label>
                                             </div>
                                             <div class="col-md-6">
