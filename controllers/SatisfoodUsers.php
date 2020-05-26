@@ -8,7 +8,7 @@ header('HTTP/1.1 200 OK');
 header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0');
 header('Pragma: no-cache');
-class Satisfood_Users extends CI_Controller {
+class SatisfoodUsers extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Food_model');
