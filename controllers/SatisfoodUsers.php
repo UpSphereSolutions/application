@@ -25,10 +25,10 @@ class SatisfoodUsers extends CI_Controller {
         $password = $this->input->post('password'); 
         if ($username == 'admin' && $password == 'admin') {
             http_response_code(200);
-            echo json_encode(array('Message'=> 'Welcome User'));
+            echo json_encode(array('Message'=> 'Welcome User', 'S' => 1));
         } else {
             http_response_code(404);
-            echo json_encode(array('Message'=> 'Invalid Username/Password'));
+            echo json_encode(array('Message'=> 'Invalid Username/Password' , 'S' => 0));
         }
     }    
 }
