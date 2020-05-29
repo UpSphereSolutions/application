@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>SATISFOOD</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url()."assets/";?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,12 +34,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="row"> 
               <div class="col-lg-12">
                 <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">SATISFOOD</h1>
-                  </div>
-                  
+                  <!-- <div class="text-center">
+                    <img class="img-responsive" src="<?php echo base_url();?>/assets/img/logo.png"/>
+                  </div> -->
+                 
                   <form action="<?php echo base_url();?>Login" method='POST' class="user">
                     <div class="form-group">
+                      <div class="col-sm-12 col-md-12">
+                          <img src="<?php echo base_url();?>/assets/img/logo.png" class="img-fluid">
+                      </div>
                       <input type="text" class="form-control form-control-user" id="inputUsername" name='inputUsername' aria-describedby="emailHelp" placeholder="Enter Username">
                     </div>
                     <div class="form-group">
