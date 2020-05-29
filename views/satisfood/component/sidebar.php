@@ -4,7 +4,7 @@
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url()."Satisfood/home";?>">
   <div class="sidebar-brand-icon rotate-n-15">
-    <i class="fas fa-laugh-wink"></i>
+      <img src="<?php echo base_url();?>/assets/img/logo.png" class="img-fluid">
   </div>
   <div class="sidebar-brand-text mx-3">SATISFOOD<sup></sup></div>
 </a>
@@ -39,8 +39,8 @@
       <h6 class="collapse-header">Settings:</h6>
       <a  style="cursor: pointer;" class="collapse-item" onclick="navigate('manageAccount')">Manage Account</a>
       <!-- <button class="collapse-item" onClick="navigate(manageAccount)">Manage Account</button> -->
-      <!-- <a class="collapse-item" onclick="navigate('manageMerchantAccount')">Merchant Account</a>
-      <a class="collapse-item" onclick="navigate('manageDriverAccount')">Driver Account</a>
+      <a class="collapse-item" onclick="navigate('manageMerchantAccount')">Merchant Account</a>
+      <!-- <a class="collapse-item" onclick="navigate('manageDriverAccount')">Driver Account</a>
       <a class="collapse-item" onclick="navigate('manageHungryCustomerAccount')">Hungry Customer Account</a> -->
     </div>
   </div>

@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                  
                   <form action="<?php echo base_url();?>Login" method='POST' class="user">
                     <div class="form-group">
-                      <div class="col-sm-12 col-md-12">
+                      <div class="col-sm-12 col-md-12 rotate-n-15">
                           <img src="<?php echo base_url();?>/assets/img/logo.png" class="img-fluid">
                       </div>
                       <input type="text" class="form-control form-control-user" id="inputUsername" name='inputUsername' aria-describedby="emailHelp" placeholder="Enter Username">
