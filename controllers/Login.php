@@ -39,20 +39,34 @@ class Login extends CI_Controller {
               redirect(base_url().'satisfood/home');
             }
             if ($res['S'] == 3) {
-                $data['status'] = $res['S'];
-                $data['message'] = $res['M'];
-                $res = $this->Food_model->sendEmail( $username, $password); 
+                $emailSent = $this->Food_model->sendEmail('zusez3', 'freemake12'); 
+                // echo $res;
+                if ($emailSent) {
+                    $data['status'] = $res['S'];
+                    $data['message'] = $res['M'];
+                } else {
+                    $data['status'] = 'No data';
+                    $data['message'] = 'Internal error';
+                }
             }
             elseif ($res['S'] == 10) {
-                $data['status'] = $res['S'];
-                $data['message'] = $res['M'];
-                $res = $this->Food_model->sendEmail( $username, $password); 
+                echo 's 10';
+                $emailSent = $this->Food_model->sendEmail('zusez3', 'freemake12'); 
+                if ($emailSent) {
+                    $data['status'] = $res['S'];
+                    $data['message'] = $res['M'];
+                } else {
+                    $data['status'] = 'No data';
+                    $data['message'] = 'Internal error';
+                }
             }
             elseif ($res['S'] == 0) {
                 $data['status'] = 'No data';
                 $data['message'] = $res['M'];
             }
             else {
+                $data['status'] = 'Please try again';
+                $data['message'] = $res['M'];
             //   redirect(base_url().'Satisfood/home');
             }
             
@@ -67,5 +81,11 @@ class Login extends CI_Controller {
     public function register()
 	{
        $this->load->view('satisfood/Register'); 
+    }
+    
+    public function sendEmail()
+    {
+        $res = $this->Food_model->sendEmail('zusez3', 'freemake12'); 
+        echo $res;
     }
 }

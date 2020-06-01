@@ -60,7 +60,7 @@ public function sendEmail($username, $password) {
         $result = $this->db->query("CALL sp_check_email('$username', '$password')");
         $result =  $result->result_array();
         mysqli_next_result( $this->db->conn_id );
-        // print_r($result[0]['email']);exit();
+        
         if (count($result) > 0) {
                 $params = array('username' => $username, 'password' => $password, 'ip' => $this->input->ip_address());
                 $this->load->library('encryption');
@@ -78,7 +78,7 @@ public function sendEmail($username, $password) {
                 $this->email->set_newline("\r\n");
                 //Email content
                 $htmlContent = '<h1 style="color: #5e9ca0;">SATISFOOD IP VERIFICATION</h1>';
-                $htmlContent .= '<label style="color: #5e9ca0;">please copy this link: <a href="http://ghd.qqt.mybluehost.me">'.base64_encode(json_encode($params)).'</a></label>';
+                $htmlContent .= '<label style="color: #5e9ca0;">please copy this link: <a href="">'.base64_encode(json_encode($params)).'</a></label>';
                 
                 $this->email->to($result[0]['email']);
                 $this->email->from('satisfood@upspheresolutions.com');
