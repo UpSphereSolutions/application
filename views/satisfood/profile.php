@@ -16,8 +16,6 @@
 </div> -->
 
 <div class="container emp-profile">
-
-            
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img" style="position: relative;text-align: center;">
@@ -362,6 +360,6 @@
   </div>
 </div>
 <script>
-$('#search').show();
+  $('#search').show();
   $(".loading").modal('hide');
 </script>
