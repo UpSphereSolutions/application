@@ -44,9 +44,11 @@ class Login extends CI_Controller {
                 if ($emailSent) {
                     $data['status'] = $res['S'];
                     $data['message'] = $res['M'];
+                    redirect(base_url().'IP/verifyIp');
                 } else {
                     $data['status'] = 'No data';
                     $data['message'] = 'Internal error';
+                    redirect(base_url().'IP/verifyIp');
                 }
             }
             elseif ($res['S'] == 10) {
@@ -55,9 +57,11 @@ class Login extends CI_Controller {
                 if ($emailSent) {
                     $data['status'] = $res['S'];
                     $data['message'] = $res['M'];
+                    redirect(base_url().'IP/verifyIp');
                 } else {
                     $data['status'] = 'No data';
                     $data['message'] = 'Internal error';
+                    redirect(base_url().'IP/verifyIp');
                 }
             }
             elseif ($res['S'] == 0) {

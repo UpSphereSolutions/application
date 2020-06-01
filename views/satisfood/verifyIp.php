@@ -34,10 +34,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="row"> 
               <div class="col-lg-12">
                 <div class="p-5">
-                   
-                  <form action="<?php echo base_url();?>/Satisfood/verifyIp" method='POST' class="user">
+                  
+                  <form action="<?php echo base_url();?>/IP/verifyIp" method='POST' class="user">
                     <div class="text-center">
-                    <h1 class='btn btn-primary btn-user btn-block'><?php echo $data['M']; ?></h1>
+                    <h1><?php if(isset($data)){echo $data;} ?></h1>
+                      <input type="text" class="form-control form-control-user" id="code" name='code' aria-describedby="emailHelp" placeholder="Enter Encrypt Data">
+                      <button type='submit' class="btn btn-primary btn-user btn-block mt-5">
+                      Verify
+                    </button>
+                    <a href="<?php echo base_url();?>Login" class="btn btn-secondary btn-user btn-block mt-1">
+                      Login
+                    </a>
                     </div>
                   </form> 
                 </div>

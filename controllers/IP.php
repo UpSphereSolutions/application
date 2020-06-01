@@ -10,20 +10,33 @@ class IP extends CI_Controller {
         $this->load->helper('url'); 
     }
     public function verifyIp() {
-       $data = $this->uri->segment(3); 
-       $data = (array)json_decode(base64_decode($data));
-       
-        
-       
-       $password = $data['password'];
-       $ip = $data['ip'];
-       $username = $data['username'];
-    //    print_r($ip);exit();
-       $data['data']['M'] = 'Direct access not allowed'; 
-       if ($data != '') {
-            $res = $this->Food_model->verifyIp($password,$username,$ip);
-            $data['data'] = $res[0]; 
+       $code = $this->input->post('code');
+       $data="";
+        if (isset($code)) {
+            $data = (array)json_decode(base64_decode($code)); 
+            // print_r($data);exit();
+            if (count($data) > 2) {
+                $password = $data['password'];
+                $ip = $data['ip'];
+                $username = $data['username'];
+              
+                $data['data']['M'] = 'Direct access not allowed'; 
+                if ($data != '') {
+                     $res = $this->Food_model->verifyIp($password,$username,$ip);
+                     if ($res[0]) {
+                        $data['data'] = "Ip Verified";
+                        $this->load->view('satisfood/verifyIp', $data);
+                     } else {
+                        $data['data'] = "Please try again";
+                        $this->load->view('satisfood/verifyIp', $data);
+                     }
+                }
+            } else {
+                $data['data'] = "Invalid credentials";
+                $this->load->view('satisfood/verifyIp', $data);
+            }
+       } else {
+        $this->load->view('satisfood/verifyIp');
        }
-       $this->load->view('satisfood/verifyIp', $data);
     }
 }
