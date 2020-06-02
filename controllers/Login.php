@@ -92,4 +92,16 @@ class Login extends CI_Controller {
         $res = $this->Food_model->sendEmail('zusez3', 'freemake12'); 
         echo $res;
     }
+
+    public function generateProduct() {
+        $data = array(
+            array('eventName'=>'Satisfood Driver Account Will Be Available Soon', 'id'=> 1, 'expired'=> 'jun-30-2020', 'image'=> 'http://ghd.qqt.mybluehost.me/satisfood/driverAccount.jpg'),
+            array('eventName'=> 'Satisfood Merchant Account Will Be Available Soon', 'id'=> 2, 'expired'=> 'jun-30-2020', 'image'=> 'http://ghd.qqt.mybluehost.me/satisfood/merchantAccount.jpg'),
+            array('eventName'=> 'Satisfood User Account Will Be Available Soon', 'id'=> 3, 'expired'=> 'jun-30-2020', 'image'=>'http://ghd.qqt.mybluehost.me/satisfood/userAccount.jpg'),
+            array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 4, 'expired'=> 'jun-30-2020', 'image'=>'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'),
+            array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 5, 'expired'=> 'jun-30-2020', 'image'=> 'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'),
+            array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 6, 'expired'=> 'jun-30-2020', 'image'=>'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'),
+            array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 7, 'expired'=> 'jun-30-2020', 'image'=> 'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'));
+        echo json_encode($data);
+    }
 }
