@@ -106,6 +106,6 @@ class Login extends CI_Controller {
             array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 5, 'expired'=> 'jun-30-2020', 'image'=> 'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'),
             array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 6, 'expired'=> 'jun-30-2020', 'image'=>'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'),
             array('eventName'=> 'Buy essentials via SatisfoodExpress Pabili', 'id'=> 7, 'expired'=> 'jun-30-2020', 'image'=> 'https://www.dinneratthezoo.com/wp-content/uploads/2019/06/stir-fry-noodles-3-2-500x500.jpg'));
-        echo json_decode($data);
+        echo json_encode($data);
     }
 }
