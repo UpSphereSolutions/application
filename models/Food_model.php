@@ -92,7 +92,23 @@ public function sendEmail($username, $password) {
         }
     }
 
+    public function getSpecialEvent()
+    {
+        $result = $this->db->query("SELECT * FROM satisfood_special_events");
+        $result =  $result->result_array(); 
+        return $result;
+    }
 
+    public function getTopMerchant()
+    {
+        $result = $this->db->query("SELECT COUNT(`merchant_account`.`id`) AS total, topMerchant.`merchantId` AS id, `merchant_account`.`name`, `merchant_account`.`image`
+        FROM `satisfood_merchant_report` AS topMerchant 
+        LEFT JOIN `merchant_account` ON topMerchant.`merchantId` = merchant_account.id 
+        GROUP BY topMerchant.`merchantId` 
+        ORDER BY COUNT(`merchant_account`.`id`) DESC LIMIT 10");
+        $result =  $result->result_array(); 
+        return $result;
+    }
 
     public function verifyIp($password, $username, $ip) {
         $result = $this->db->query("CALL sp_manageIp('$password','$username','$ip')");
