@@ -99,6 +99,13 @@ public function sendEmail($username, $password) {
         return $result;
     }
 
+    public function getMenu()
+    {
+        $result = $this->db->query("SELECT * FROM satisfood_menu");
+        $result =  $result->result_array(); 
+        return $result;
+    }
+
     public function getTopMerchant()
     {
         $result = $this->db->query("SELECT COUNT(`merchant_account`.`id`) AS total, topMerchant.`merchantId` AS id, `merchant_account`.`name`, `merchant_account`.`image`

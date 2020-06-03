@@ -102,4 +102,9 @@ class Login extends CI_Controller {
         $data = $this->Food_model->getTopMerchant(); 
         echo json_encode($data);
     }
+
+    public function generateMenu() {
+        $data = $this->Food_model->getMenu(); 
+        echo json_encode($data);
+    }
 }
