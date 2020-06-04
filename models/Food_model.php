@@ -113,7 +113,6 @@ public function sendEmail($username, $password) {
     {
         $result = $this->db->query("SELECT * FROM `satisfood_appUser` where username='$username' and password=MD5('$password')");
         $result =  $result->result_array(); 
-        print_r($result);
         return $result;
     }
 
