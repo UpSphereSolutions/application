@@ -123,6 +123,14 @@ public function sendEmail($username, $password) {
         mysqli_next_result( $this->db->conn_id );
         return $result;
     }
+
+    public function registerAppUser($firstname,$middlename,$lastname,$gender, $birthdate,$contactNo,$email,$username,$password) {
+        $result = $this->db->query("CALL sp_registerAppUser('$firstname','$middlename','$lastname','$gender','$birthdate','$contactNo','$email','$username','$password')");
+        $result =  $result->result_array();
+        mysqli_next_result( $this->db->conn_id );
+        return $result;
+    }
+
 // <!-- public function insert_entry()
 // {
 //         $this->title    = $_POST['title']; // please read the below note
