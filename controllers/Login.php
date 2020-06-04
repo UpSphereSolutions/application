@@ -148,10 +148,10 @@ class Login extends CI_Controller {
             $password
         );  
         if (count($data) > 0){
-            echo base64_encode(json_encode(array('S'=>1,'data' => $data[0])));
+            echo (json_encode(array('S'=>1,'data' => $data[0])));
         }
         else {
-            echo base64_encode(json_encode(array('S'=>0,'data' => $data)));
+            echo (json_encode(array('S'=>0,'data' => $data)));
         }
     }
 }
