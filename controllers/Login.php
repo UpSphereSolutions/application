@@ -133,6 +133,25 @@ class Login extends CI_Controller {
             $username,
             $password
         );  
-        echo json_encode($data);
+        echo json_encode($data[0]);
+    }
+
+    public function LogInAppUser() {
+
+        $requestBody = json_decode($this->input->raw_input_stream, true);
+ 
+        $username = $requestBody['username'];
+        $password = $requestBody['password'];
+
+        $data = $this->Food_model->LoginAppUser( 
+            $username,
+            $password
+        );  
+        if (count($data) > 0){
+            echo json_encode($data[0]);
+        }
+        else {
+            echo json_encode([]);
+        }
     }
 }
