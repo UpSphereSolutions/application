@@ -101,7 +101,10 @@ public function sendEmail($username, $password) {
 
     public function getMenu()
     {
-        $result = $this->db->query("SELECT * FROM satisfood_menu");
+        $result = $this->db->query("SELECT `satisfood_appUser_menu`.`id`, menu.icon, menu.screen, menu.name,`satisfood_appUser_menu`.`notification`  
+        FROM `satisfood_appUser_menu` 
+        INNER JOIN `satisfood_menu` AS menu ON menu.`id` = `satisfood_appUser_menu`.`menuId`
+        INNER JOIN `satisfood_appUser` AS appUser ON appUser.`id` = `satisfood_appUser_menu`.`userid`");
         $result =  $result->result_array(); 
         return $result;
     }
