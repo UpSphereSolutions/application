@@ -110,17 +110,17 @@ class Login extends CI_Controller {
 
     public function registerUser() {
 
-        $requestBody = json_decode($this->request->getBody());
+        $requestBody = json_decode($this->input->raw_input_stream, true);
 
-        $firstname = $requestBody->firstname;
-        $middlename = $requestBody->middlename;
-        $lastname = $requestBody->lastname;
-        $gender = $requestBody->gender;
-        $birthdate = $requestBody->birthdata;
-        $contactNo = $requestBody->contactNo;
-        $email = $requestBody->email;
-        $username = $requestBody->username;
-        $password = $requestBody->password;
+        $firstname = $requestBody['firstname'];
+        $middlename = $requestBody['middlename'];
+        $lastname = $requestBody['lastname'];
+        $gender = $requestBody['gender'];
+        $birthdate = $requestBody['birthdate'];
+        $contactNo = $requestBody['contactNo'];
+        $email = $requestBody['email'];
+        $username = $requestBody['username'];
+        $password = $requestBody['password'];
 
         $data = $this->Food_model->registerAppUser(
             $firstname,
