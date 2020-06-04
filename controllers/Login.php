@@ -107,4 +107,31 @@ class Login extends CI_Controller {
         $data = $this->Food_model->getMenu(); 
         echo json_encode($data);
     }
+
+    public function registerUser() {
+        $firstname=$this->input->post('firstname');
+        $middlename=$this->input->post('middlename');
+        $lastname=$this->input->post('lastname');
+        $gender=$this->input->post('gender');
+        $birthdate=$this->input->post('birthdata');
+        $contactNo=$this->input->post('contactNo');
+        $email=$this->input->post('email');
+        $username=$this->input->post('username');
+        $password=$this->input->post('password');
+
+        $data = $this->Food_model->registerAppUser(
+            $firstname,
+            $middlename,
+            $lastname,
+            $gender,
+            $birthdate,
+            $contactNo,
+            $email,
+            $username,
+            $password
+        ); 
+        
+
+        echo json_encode($data);
+    }
 }
