@@ -106,7 +106,7 @@ class Login extends CI_Controller {
     public function generateMenu() {
         $requestBody = json_decode($this->input->raw_input_stream, true);
         $id = $requestBody['id'];
-        $data = $this->Food_model->getMenu(); 
+        $data = $this->Food_model->getMenu($id); 
         echo json_encode($data);
     }
 
