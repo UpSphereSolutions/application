@@ -140,7 +140,7 @@ class Login extends CI_Controller {
             if ($sendEmail) { 
                 echo json_encode($data[0]);
             } else {
-                echo json_encode([]);
+                echo json_encode(array("S" => 0, "M" => $sendEmail));
             }
         }
     }
