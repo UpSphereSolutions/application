@@ -108,8 +108,7 @@ class Login extends CI_Controller {
         echo json_encode($data);
     }
 
-    public function registerUser() {
-
+    public function registerUser() { 
         $requestBody = json_decode($this->input->raw_input_stream, true);
 
         $firstname = $requestBody['firstname'];
@@ -132,8 +131,29 @@ class Login extends CI_Controller {
             $email,
             $username,
             $password
-        );  
-        echo json_encode($data[0]);
+        );
+
+        if ($data[0]) {
+            $sendEmail = $this->Food_model->sendVerificationCode($email);
+            if ($sendEmail) { 
+                echo json_encode($data[0]);
+            } else {
+                echo json_encode([]);
+            }
+        }
+    }
+
+    public function VerifyAppUser()
+    {
+        $requestBody = json_decode($this->input->raw_input_stream, true);
+        $email = $requestBody['email'];
+        $code = $requestBody['code'];
+        $data = $this->Food_model->verifyAppUser( 
+            $email,
+            $code
+        ); 
+        
+        return $data;
     }
 
     public function LogInAppUser() {

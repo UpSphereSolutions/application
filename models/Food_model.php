@@ -92,6 +92,60 @@ public function sendEmail($username, $password) {
         }
     }
 
+    
+
+    public function sendVerificationCode($email) {  
+        function generatePIN($digits = 4){
+                $i = 0; //counter
+                $pin = ""; //our default pin is blank.
+                while($i < $digits){
+                    //generate a random number between 0 and 9.
+                    $pin .= mt_rand(0, 9);
+                    $i++;
+                }
+                return $pin;
+        }
+
+        $pin = generatePIN();
+
+        $result = $this->db->query("update `satisfood_appUser` set code='$pin' where email='$email'");
+         
+        if($result) {
+                $this->load->library('encryption');
+                $config = array(
+                'protocol'  => 'smtp',
+                'smtp_host' => 'ssl://mail.upspheresolutions.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'satisfood@upspheresolutions.com',
+                'smtp_pass' => 'satisfood',
+                'mailtype'  => 'html',
+                'charset'   => 'utf-8'
+                );
+                $this->email->initialize($config);
+                $this->email->set_mailtype("html");
+                $this->email->set_newline("\r\n");
+                //Email content
+                $htmlContent = '<h2>SATISFOOD VERIFICATION CODE</h2>';
+                $htmlContent .= '<h1 style="color: #5e9ca0;">'.$pin.'</h1>';
+                
+                $this->email->to($email);
+                $this->email->from('satisfood@upspheresolutions.com');
+                $this->email->subject('NO REPLY!!');
+                $this->email->message($htmlContent);
+                //Send email
+                $res = $this->email->send(); 
+                return $res;
+        }
+    }
+
+    public function verifyAppUser($email, $code)
+    {
+        $result = $this->db->query("update `satisfood_appUser` set status='verified' where email='$email' and code='$code'");
+        // $result = $this->db->affected_rows();
+        // print_r($result);
+        return $result;
+    }
+
     public function getSpecialEvent()
     {
         $result = $this->db->query("SELECT * FROM satisfood_special_events");
